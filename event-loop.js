@@ -61,3 +61,21 @@ composition(add, multi, a, b);
 composition(multi, add, a, b);
 composition(multi, multi, a, b);
 composition(add, add, a, b);
+let users = [];
+async function getData(url) {
+  try {
+    let response = await fetch(url);
+    let data = await response.json();
+    users = data;
+    printData();
+  } catch (error) {}
+}
+let url = `https://jsonplaceholder.typicode.com/users`;
+getData(url);
+let ul = document.querySelector("#users");
+function printData() {
+  let list = users.map((user, index) => {
+    return `<li>${user.name}</li>`;
+  });
+  ul.innerHTML = list.join("");
+}
