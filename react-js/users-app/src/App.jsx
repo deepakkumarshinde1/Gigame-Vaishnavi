@@ -5,7 +5,7 @@
 // 4. render method => html like code called as JSX i.e JavaScript XML
 // function
 
-import "./App.css";
+// import "./App.css";
 import UserForm from "./UserForm";
 
 export default function App() {
@@ -21,9 +21,6 @@ export default function App() {
       >
         Hello Its React JS {text}
       </div>
-      <UserForm />
-      <UserForm />
-      <UserForm />
       <UserForm />
     </>
   );
