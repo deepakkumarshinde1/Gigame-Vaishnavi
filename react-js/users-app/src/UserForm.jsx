@@ -22,7 +22,7 @@ function UserForm() {
       <h2>User Form</h2>
       <form action="">
         <input type="text" onChange={handelInputChange} />
-        <TextError error={error} />
+        {error && <TextError error={error} />}
         <button>Save</button>
         <hr />
         <h3>
