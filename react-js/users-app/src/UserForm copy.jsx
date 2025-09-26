@@ -1,11 +1,9 @@
 import { useState } from "react";
 import TextError from "./Error";
-import { useFormContext } from "./context/form.context";
 
 function UserForm() {
   let [text, setText] = useState(""); // 'a' , 1, [] , {}, [{}] , null
   let [error, setError] = useState("");
-  let { studentName } = useFormContext();
 
   let handelInputChange = (event) => {
     let reg = new RegExp(/^[6-9][0-9]{9}$/gi);
@@ -21,7 +19,7 @@ function UserForm() {
   console.log("render");
   return (
     <>
-      <h2>User Form {studentName}</h2>
+      <h2>User Form</h2>
       <form action="">
         <input type="text" onChange={handelInputChange} />
         {error && <TextError error={error} />}

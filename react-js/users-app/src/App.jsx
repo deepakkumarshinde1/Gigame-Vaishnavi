@@ -6,7 +6,8 @@
 // function
 
 // import "./App.css";
-import { useEffect } from "react";
+
+import { FormContextProvider } from "./context/form.context";
 import UserForm from "./UserForm";
 
 export default function App() {
@@ -23,7 +24,9 @@ export default function App() {
       >
         Hello Its React JS {text}
       </div>
-      <UserForm />
+      <FormContextProvider>
+        <UserForm />
+      </FormContextProvider>
     </>
   );
 }
