@@ -1,58 +1,67 @@
-import { Component, useEffect, useState } from "react";
+// import { Component, memo, useEffect, useState } from "react";
 
-class TextError extends Component {
-  constructor(props) {
-    super(props);
+// class TextError extends Component {
+//   constructor(props) {
+//     super(props);
 
-    this.state = { intervalId: null, count: 0 };
-  }
+//     // this.state = { intervalId: null, count: 0 };
+//   }
 
-  scroll() {
-    console.log("scroll");
-  }
+//   scroll() {
+//     console.log("scroll");
+//   }
 
-  componentDidMount() {
-    // logic
-    let intervalId = setInterval(() => {
-      console.log("interval");
-    }, 1000);
+//   componentDidMount() {
+//     // // logic
+//     // let intervalId = setInterval(() => {
+//     //   console.log("interval");
+//     // }, 1000);
+//     // window.addEventListener("scroll", this.scroll);
+//     // this.setState((pState) => {
+//     //   return { ...pState, intervalId };
+//     // });
+//   } // mounting
 
-    window.addEventListener("scroll", this.scroll);
+//   componentWillUnmount() {
+//     // clearInterval(this.state.intervalId);
+//     // window.removeEventListener("scroll", this.scroll);
+//   }
 
-    this.setState((pState) => {
-      return { ...pState, intervalId };
-    });
-  } // mounting
+//   componentDidUpdate() {
+//     console.log("comp is updated");
+//   }
 
-  componentWillUnmount() {
-    clearInterval(this.state.intervalId);
-    window.removeEventListener("scroll", this.scroll);
-  }
+//   shouldComponentUpdate() {
+//     return true;
+//   }
+//   componentDidCatch() {}
+//   render() {
+//     return (
+//       <section>
+//         <small>
+//           {this.props.error}
+//           {/* {this.state.count} */}
+//         </small>
+//         {/* <button
+//           type="button"
+//           onClick={() => this.setState({ count: this.state.count + 1 })}
+//         >
+//           Count
+//         </button> */}
+//       </section>
+//     );
+//   }
+// }
 
-  componentDidUpdate() {
-    console.log("comp is updated");
-  }
+import { memo } from "react";
 
-  shouldComponentUpdate() {}
-  componentDidCatch() {}
-  render() {
-    return (
-      <section>
-        <small>
-          {this.props.error} {this.state.count}
-        </small>
-        <button
-          type="button"
-          onClick={() => this.setState({ count: this.state.count + 1 })}
-        >
-          Count
-        </button>
-      </section>
-    );
-  }
+function TextError({ error }) {
+  console.log("error");
+
+  return <small>{error}</small>;
 }
 
-export default TextError;
+export default memo(TextError);
 
 // mounting => 1
 // unmounting => 1

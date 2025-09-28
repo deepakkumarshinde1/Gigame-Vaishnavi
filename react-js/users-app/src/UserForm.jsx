@@ -1,30 +1,17 @@
-import { useState } from "react";
+import { useMemo } from "react";
 import TextError from "./Error";
+import Header from "./Header";
 import { useFormContext } from "./context/form.context";
 
 function UserForm() {
-  let [text, setText] = useState(""); // 'a' , 1, [] , {}, [{}] , null
-  let [error, setError] = useState("");
-  let { studentName } = useFormContext();
+  let { handelInputChange, text, error } = useFormContext();
 
-  let handelInputChange = (event) => {
-    let reg = new RegExp(/^[6-9][0-9]{9}$/gi);
-
-    if (reg.test(event.target.value) || event.target.value.length === 0) {
-      setError("");
-    } else {
-      setError("Invalid Mobile Number");
-    }
-    setText(event.target.value);
-  };
-
-  console.log("render");
   return (
     <>
-      <h2>User Form {studentName}</h2>
+      <Header />
       <form action="">
         <input type="text" onChange={handelInputChange} />
-        {error && <TextError error={error} />}
+        <TextError error={error} />
         <button>Save</button>
         <hr />
         <h3>
