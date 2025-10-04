@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "./redux/counter.slice";
+import Registration from "./components/Registration";
+import Products from "./Products";
 
 function App() {
   let dispatch = useDispatch();
@@ -15,6 +17,9 @@ function App() {
       >
         INC
       </button>
+      <hr />
+      <Registration />
+      <Products />
     </div>
   );
 }
