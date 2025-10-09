@@ -1,0 +1,30 @@
+<mxfile host="65bd71144e">
+    <diagram id="cZvy1oj6qp_lTNL3u6-L" name="Page-1">
+        <mxGraphModel dx="716" dy="394" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;ol&gt;&lt;li&gt;BrowserRouter&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Routes&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Route&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Navigate&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;NavLink&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Link&lt;/li&gt;&lt;li style=&quot;text-align: left;&quot;&gt;Outlet&lt;/li&gt;&lt;/ol&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="170" y="160" width="190" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;ol&gt;&lt;li&gt;useNavigate&lt;/li&gt;&lt;li&gt;useParams&lt;/li&gt;&lt;li&gt;useQueryParams&lt;/li&gt;&lt;/ol&gt;" style="text;strokeColor=none;align=left;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="414" y="180" width="170" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="comp" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="5" target="2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" style="edgeStyle=none;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="1" source="5" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="hooks" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1966" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="React-Router-DOM" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="70" width="180" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

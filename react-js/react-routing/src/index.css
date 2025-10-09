@@ -1,0 +1,7 @@
+.menu > li > .active {
+  text-decoration: underline;
+}
+
+.menu > li > a {
+  text-decoration: none;
+}
