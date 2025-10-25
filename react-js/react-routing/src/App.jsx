@@ -1,37 +1,39 @@
 import { Navigate, NavLink, Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import MainBranch from "./components/MainBranch";
-import SubBranch from "./components/SubBranch";
+import { lazy, Suspense, use } from "react";
+const Home = lazy(() => import("./components/Home"));
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+const MainBranch = lazy(() => import("./components/MainBranch"));
+const SubBranch = lazy(() => import("./components/SubBranch"));
+const ProtectedRoute = lazy(() => import("./components/ProtectedRoute"));
+const Login = lazy(() => import("./components/Login"));
 
 function App() {
+  let base_api = import.meta.env.VITE_API;
+  let app_name = import.meta.env.VITE_NAME;
   return (
     <>
-      <header>
-        <ul className="menu">
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about-us">About-Us</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact</NavLink>
-          </li>
-        </ul>
-      </header>
-      <hr />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about-us" element={<About />} />
-        <Route path="/contact" element={<Contact />}>
-          <Route path="" element={<Navigate to="/contact/main-branch" />} />
-          <Route path="main-branch" element={<MainBranch />} />
-          <Route path=":branch" element={<SubBranch />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <Suspense
+        fallback={
+          <>
+            <p>Loading....</p>
+          </>
+        }
+      >
+        <Routes>
+          <Route path="" element={<ProtectedRoute />}>
+            <Route path="" element={<Home />} />
+            <Route path="about-us" element={<About />} />
+            <Route path="contact" element={<Contact />}>
+              <Route path="" element={<Navigate to="/contact/main-branch" />} />
+              <Route path="main-branch" element={<MainBranch />} />
+              <Route path=":branch" element={<SubBranch />} />
+            </Route>
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
