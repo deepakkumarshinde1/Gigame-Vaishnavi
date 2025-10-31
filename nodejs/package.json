@@ -1,0 +1,25 @@
+{
+  "name": "my-project",
+  "version": "0.1.0",
+  "description": "This is a base project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "express",
+    "js",
+    "mysql"
+  ],
+  "author": "deepakkumar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
