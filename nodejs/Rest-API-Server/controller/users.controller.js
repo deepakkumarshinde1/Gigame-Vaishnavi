@@ -1,4 +1,4 @@
-import { users } from "../model/users.model.js";
+import { getUsers, saveNewUser } from "../model/users.model.js";
 import bcrypt from "bcrypt";
 
 export const homePage = (request, response) => {
@@ -8,18 +8,19 @@ export const homePage = (request, response) => {
   });
 };
 
-export const getUsersList = (request, response) => {
-  if (users.length === 0) {
+export const getUsersList = async (request, response) => {
+  try {
+    let users = await getUsers();
     response.json({
-      status: false,
-      message: "Users not found",
+      status: true,
+      users,
     });
-    return false;
+  } catch (error) {
+    response.status(500).json({
+      status: false,
+      error,
+    });
   }
-  response.json({
-    status: true,
-    users,
-  });
 };
 
 export const addNewUser = async (request, response) => {
@@ -27,11 +28,13 @@ export const addNewUser = async (request, response) => {
     let data = request.body;
     let newPass = await bcrypt.hash(data.password, 10);
     data.password = newPass;
+    let lastInsert = await saveNewUser([data.name, data.email, newPass]);
     response.json({
       status: true,
-      data,
+      lastInsert,
     });
   } catch (error) {
+    console.log(error);
     response.status(500).json({ status: false });
   }
 };
