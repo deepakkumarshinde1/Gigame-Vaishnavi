@@ -1,4 +1,4 @@
-import { getUsers, saveNewUser } from "../model/users.model.js";
+import { changeUserPic, getUsers, saveNewUser } from "../model/users.model.js";
 import bcrypt from "bcrypt";
 
 export const homePage = (request, response) => {
@@ -28,6 +28,11 @@ export const addNewUser = async (request, response) => {
     let data = request.body;
     let newPass = await bcrypt.hash(data.password, 10);
     data.password = newPass;
+    response.json({
+      status: true,
+      data,
+    });
+    return false;
     let lastInsert = await saveNewUser([data.name, data.email, newPass]);
     response.json({
       status: true,
@@ -55,4 +60,25 @@ export const updateUser = async (request, response) => {
   }
 };
 
+export const updateUserProfilePic = async (request, response) => {
+  try {
+    let { id } = request.params;
+    let file = request.file;
+    if (file) {
+      let isUpdate = await changeUserPic(id, file.filename);
+      response.json({
+        status: true,
+        isUpdate,
+      });
+    } else {
+      response.json({
+        status: false,
+        message: "file as not saved",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    response.status(500).json({ status: false });
+  }
+};
 // success , modify, client error , server error

@@ -21,3 +21,15 @@ export const saveNewUser = async (data) => {
     return Promise.reject(err);
   }
 };
+
+export const changeUserPic = async (id, file_name) => {
+  try {
+    const isUpdated = pool.execute(
+      `UPDATE users SET user_profile = ? WHERE id = ?`,
+      [file_name, id]
+    );
+    return Promise.resolve(isUpdated);
+  } catch (error) {
+    return Promise.reject(err);
+  }
+};
