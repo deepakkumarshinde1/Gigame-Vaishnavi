@@ -1,0 +1,2 @@
+text="deeepak"
+print(text)
