@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "db:sync": "node migrations/dbSync.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +18,7 @@
     "dotenv": "^17.2.3",
     "express": "^4.18.2",
     "graphql": "^16.6.0",
-    "mysql2": "^3.15.3"
+    "mysql2": "^3.15.3",
+    "sequelize": "^6.37.7"
   }
 }
