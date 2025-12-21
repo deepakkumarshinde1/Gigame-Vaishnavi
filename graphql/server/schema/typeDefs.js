@@ -6,6 +6,12 @@ let typeDefs = `
         password:String,
         user_profile:String
     }
+    input CreateUser {
+        username:String!,
+        email:String!,
+        password:String!,
+        user_profile:String
+    }
 
     type UserResponse {
         success: Boolean!
@@ -16,6 +22,10 @@ let typeDefs = `
     type Query {
         users: UserResponse!,
         user(id: ID!): UserResponse!
+    }
+
+    type Mutation {
+        createUser(user:CreateUser!): UserResponse!
     }
 `;
 export default typeDefs;
